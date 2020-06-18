@@ -1,0 +1,37 @@
+{%  extends 'webapp/main.html' %}
+
+{% block contenido %}
+
+<br>
+
+		<div class="row">
+			<div class="col-md">
+				<div class="card card-body">
+					<h5>Products</h5>
+					<a class="btn btn-primary  btn-sm btn-block" href="">Nuevo Producto</a>
+				</div>
+				<div class="card card-body">
+					<table class="table">
+						<tr>
+							<th>Equipo</th>
+							<th>Categoria</th>
+							<th>Precio</th>
+						</tr>
+						{% for equipo in equipos %}
+						<tr>
+							<td>{{equipo.nombre}}</td>
+							<td>{{equipo.tipo_equipo}}</td>
+							<td>{{equipo.costo_reposicion}}</td>
+							<td><a href="">ACTUALIZAR</a></td>
+							<td><a href="">ELIMINAR</a></td>
+						</tr>
+
+						{% endfor %}
+
+					</table>
+				</div>
+			</div>
+
+		</div>
+
+{% endblock %}

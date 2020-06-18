@@ -1,0 +1,15 @@
+{%  extends 'webapp/main.html' %}
+
+{% load static %}
+
+{% block contenido %}
+
+    <form action="" method="POST">
+        {% csrf_token %}
+        <table>
+            {{form.as_table}} <hr>
+        </table>
+
+        <input type="submit" name="Submit">
+    </form>
+{% endblock %}

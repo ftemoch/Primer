@@ -1,0 +1,70 @@
+{%  extends 'webapp/main.html' %}
+
+{% block contenido %}
+{%  include 'webapp/estado.html' %}
+<br>
+
+<div class="row">
+	<div class="col-md-5">
+		<h5>Clientes:</h5>
+		<hr>
+		<div class="card card-body">
+			<a class="btn btn-primary  btn-sm btn-block" href="">Crear Cliente</a>
+			<table class="table table-sm">
+				<tr>
+					<th></th>
+					<th>Cliente</th>
+					<th>Telefono</th>
+				</tr>
+				{% for cliente in clientes %}
+						<tr>
+							<td><a class="btn btn-primary  btn-sm btn-block" href="{% url 'clientes' cliente.id  %}">VER</a></td>
+							<td>{{cliente.nombre}}</td>
+							<td>{{cliente.telefono}}</td>
+
+
+						</tr>
+
+				{% endfor %}
+
+			</table>
+		</div>
+	</div>
+
+	<div class="col-md-7">
+		<h5>Ultimos 5  Contratos</h5>
+		<hr>
+		<div class="card card-body">
+			<a class="btn btn-primary  btn-sm btn-block" href="{% url 'crear_contrato1'  %}">Crear Contrato1</a>
+
+			<table class="table table-sm">
+				<tr>
+					<th>Nro Contrato</th>
+					<th>Cliente</th>
+					<th>Estado</th>
+					<th>Actualizar</th>
+					<th>Quitar</th>
+
+				</tr>
+				{% for contrato in contratos %}
+						<tr>
+							<td>{{contrato.nroContrato}}</td>
+							<td>{{contrato.cliente}}</td>
+							<td>{{contrato.estado_contrato}}</td>
+							<td><a class="btn btn-warning" href="{% url 'actualizar_contrato' contrato.id  %}">ACTUALIZAR</a></td>
+							<td><a class="btn btn-danger" href="{% url 'borrar_contrato' contrato.id  %}">ELIMINAR</a></td>
+
+
+						</tr>
+
+				{% endfor %}
+
+			</table>
+		</div>
+	</div>
+
+</div>
+
+
+{% endblock %}
+

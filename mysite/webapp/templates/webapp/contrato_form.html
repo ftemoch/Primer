@@ -1,0 +1,16 @@
+{%  extends 'webapp/main.html' %}
+
+{% load static %}
+
+{% block contenido %}
+Adicionar Equipos al contrato de : <b>{{ cliente.nombre }}</b>
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{ formset.management_form }}
+        {% for form in formset %}
+          {{form}}
+        <hr>
+        {% endfor %}
+        <input class="btn btn-warning" type="submit" name="Submit">
+    </form>
+{% endblock %}
